@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "author": "Hazal Ertürk",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -94.5,
+      "left": -167.3,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ina219",
+      "id": "powerSensor",
+      "top": -50,
+      "left": 100,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot1",
+      "top": -106.9,
+      "left": -288.2,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "esp:18",
+      "ultrasonic1:ECHO",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "esp:5",
+      "ultrasonic1:TRIG",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "esp:5V",
+      "ultrasonic1:VCC",
+      "red",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "esp:GND.1",
+      "ultrasonic1:GND",
+      "black",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "pot1:VCC",
+      "esp:3V3",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "pot1:GND",
+      "esp:GND.2",
+      "black",
+      [
+        "v19.2",
+        "h153.6"
+      ]
+    ],
+    [
+      "pot1:SIG",
+      "esp:34",
+      "green",
+      [
+        "v0"
+      ]
+    ]
+  ],
+  "dependencies": {}
+}
